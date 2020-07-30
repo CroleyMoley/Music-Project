@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
-  
+  post '/signup' => 'users#create'
+
   resources :equalizers
   resources :artists
   resources :genres
