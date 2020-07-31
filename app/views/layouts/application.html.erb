@@ -10,7 +10,10 @@
   </head>
 
   <div>
+    <% if @user %>
     <%= link_to "Log Out", logout_path, method: :delete%>
+    <%= link_to "Create New Artist", artist_path %>
+    <% end %>
   </div>
 
   <body>
