@@ -11,12 +11,20 @@ class ArtistsController < ApplicationController
         if @artist.save
             redirect_to artist_path(@artist)
         else
+            @artist.build_genre
             render :new
         end
     end
 
     def show 
         
+    end
+
+    def index 
+        @artist = Artist.all 
+    end
+
+    def edit
     end
 
 
