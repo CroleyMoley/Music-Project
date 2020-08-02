@@ -1,1 +1,14 @@
-<h1></h1>
+<h1><%= @artist.artist_name %></h1>
+
+<% if @artist.image.attached? %>
+    <%= image_tag url_for(@ice_cream.image) %>
+<% end %>
+
+<h2><%= @artist.genre_name %></h2>
+
+<h3>Added by: <%= link_to @artist.user, user_path(@user) %></h3>
+<%= link_to "Edit #{@artist.artist_name}", edit_artist_path(@artist) if @artist.user == current_user %>
+
+<br><br>
+
+<%= link_to "See all EQ Settings", artist_equalizers_path(@artist) %>
