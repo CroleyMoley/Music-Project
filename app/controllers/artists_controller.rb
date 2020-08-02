@@ -16,6 +16,7 @@ class ArtistsController < ApplicationController
     end
 
     def show 
+        
     end
 
 
