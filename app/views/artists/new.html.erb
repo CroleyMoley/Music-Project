@@ -7,7 +7,7 @@
    
     <p>Select a Genre:</p>
     
-    <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: 'Select One' %>
     
 
     <p>Create a new Genre: </p>
