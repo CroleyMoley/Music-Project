@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   resources :equalizers
-  resources :artists
+  resources :artists do
+    resources :equalizers, only [:new, :index]
+  end
   resources :genres
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
