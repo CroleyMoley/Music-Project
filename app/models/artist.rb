@@ -5,7 +5,7 @@ class Artist < ApplicationRecord
   has_many :users, through: :equalizers
   accepts_nested_attributes_for :genre
 
-  def artist_attributes(attributes)
+  def artist_attributes=(attributes)
     artist = Artist.find_or_create_by(attributes) if !name.empty?
   end
   

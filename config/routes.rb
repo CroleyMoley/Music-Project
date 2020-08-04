@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :equalizers
   resources :artists do
-    resources :equalizers, only [:new, :index]
+    resources :equalizers, only: [:new, :index]
   end
   resources :genres
   resources :users
