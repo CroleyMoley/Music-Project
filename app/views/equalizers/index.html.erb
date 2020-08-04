@@ -1,0 +1,11 @@
+<% if @artist %>
+    <h1>Equalization Settings for <%= @artist.artist_name %> - <%= @artist.genre.name %></h1>
+<% else %>
+    <h1>All Equalization Settings</h1>
+<% end %>
+<ul>
+    <% @equalizers.each do |e| %>
+        <li><%= a.artist.artist_name %>: <%= r.settings %></li> 
+        <br>
+    <% end %>
+</ul>
