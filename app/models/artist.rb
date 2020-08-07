@@ -8,7 +8,7 @@ class Artist < ApplicationRecord
   validates :artist_name, presence: true, uniqueness: true
   validates :no_duplicates
 
-  def self.alpha
+  def self.alphabetical_order
     order(:artist_name)
   end
 

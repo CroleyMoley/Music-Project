@@ -7,7 +7,7 @@
     <% else %>
     <div>
         <%= f.label :artist_id, "Select an Artist" %>
-        <%= f.collection_select :artist_id, Artist.all, :id, :artist_name, include_blank: true %>
+        <%= f.collection_select :artist_id, Artist.alphabetical_order, :id, :artist_name_and_genre, include_blank: true %>
     </div>
     <% end %>
     <div>
