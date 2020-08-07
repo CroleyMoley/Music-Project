@@ -3,7 +3,7 @@ class CreateGenres < ActiveRecord::Migration[6.0]
     create_table :genres do |t|
       t.string :name
 
-      t.timestamps
+      t.timestamps 
     end
   end
 end
