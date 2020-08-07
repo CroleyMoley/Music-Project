@@ -1,20 +1,22 @@
 <h1>Create New Artists here!</h1>
-<%= render 'layouts/errors', locals: {object: @artist} %>
+<%= render partial: 'layouts/errors', locals: {object: @artist} %>
 <%= form_for(@artist) do |f| %>
-
+    <div>
      <%= f.label :artist_name %>
     <%= f.text_field :artist_name %>
-   
+    </div>
     <p>Select a Genre:</p>
-    
+    <div>
     <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: 'Select One' %>
-    
+    </div>
 
-    <p>Create a new Genre: </p>
+    <p> Create a new Genre: </p>
+    <div>
     <%= f.fields_for :genre do |a| %>
         <%= a.label :name %>
         <%= a.text_field :name %>
     <% end %>
+    </div>
     <br>
     
     <%= f.submit "Create Artist" %>
