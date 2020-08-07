@@ -1,5 +1,5 @@
 <h1>Create New Artists here!</h1>
-
+<%= render 'layouts/errors', locals: {object: @artist} %>
 <%= form_for(@artist) do |f| %>
 
      <%= f.label :artist_name %>

@@ -1,15 +1,13 @@
-<% if params[:artist_id] %>
-    <h1>Add Equalizer Settings for <%= @equalizer.artist.artist_name %> - <%= @equalizer.artist.genre.name %></h1>
-<% else %>
-    <h1>Create a New Equalizer Setting</h1>
-<% end %>
+<%= display_header(@equalizer) %>
+<%= render partial: 'layouts/errors', locals: {object: @equalizer} %>
+
 <%= form_for(@equalizer) do |f| %>
     <% if params[:artist_id] %>
         <%= f.hidden_field :artist_id %>
     <% else %>
     <div>
         <%= f.label :artist_id, "Select an Artist" %>
-        <%= f.collection_select :artist_id, Artist.all, :id, :artist_name %>
+        <%= f.collection_select :artist_id, Artist.all, :id, :artist_name, include_blank: true %>
     </div>
     <% end %>
     <div>

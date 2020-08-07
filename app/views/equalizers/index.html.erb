@@ -5,7 +5,7 @@
 <% end %>
 <ul>
     <% @equalizers.each do |e| %>
-        <li><%= e.artist.artist_name %>: <%= e.settings %></li> 
+        <li><%= e.artist.artist_name %>: <%= link_to e.settings, equalizer_path(e) %></li> 
         <br>
     <% end %>
 </ul>
