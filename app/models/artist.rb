@@ -6,7 +6,7 @@ class Artist < ApplicationRecord
   accepts_nested_attributes_for :genre
 
   def artist_attributes=(attributes)
-    artist = Artist.find_or_create_by(attributes) if !name.empty?
+    artist = Artist.find_or_create_by(attributes) if !attributes['name'].empty?
   end
   
 end
