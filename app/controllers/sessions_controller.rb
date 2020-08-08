@@ -9,11 +9,7 @@ class SessionsController < ApplicationController
 
     def create
         if params[:provider] == 'google_oauth2'
-            @user = User.create_by_google_omniauth(authorize)
-            session[:user_id] = @user.id
-            redirect_to user_path(@user)
-        elsif params[:provider] == 'github'
-            @user = .create_by_github_omniauth(authorize)
+            @user = User.create_by_google_omniauth(auth)
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else 
@@ -35,12 +31,15 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        @user = User.create_by_google_omniauth(authorize)
+        @user = User.google_creation(auth)
+        
         session[:user_id] = @user.id
         redirect_to user_path(@user)
     end
-
-    def authorize 
-        request.env['omniauth.authorize']
+    
+    private
+    def auth
+        request.env['omniauth.auth']
+    end
     
 end
