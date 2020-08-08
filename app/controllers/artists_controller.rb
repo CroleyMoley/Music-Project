@@ -1,6 +1,5 @@
 class ArtistsController < ApplicationController
-    before_action :set_artist, only:[:show, :edit, :update]
-    before_action :redirect_if_not_logged_in
+    
 
     def new 
         @artist = Artist.new 
@@ -23,7 +22,7 @@ class ArtistsController < ApplicationController
     end
 
     def index 
-        @artists = Artist.all 
+        @artists = Artist.order(artist_name: :asc)
     end
 
     def edit

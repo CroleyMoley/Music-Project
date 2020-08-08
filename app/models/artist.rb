@@ -6,7 +6,9 @@ class Artist < ApplicationRecord
   
 
   validates :artist_name, presence: true, uniqueness: true
-  validates :no_duplicates
+  validate :no_duplicate
+
+  
 
   def self.alphabetical_order
     order(:artist_name)
@@ -17,7 +19,7 @@ class Artist < ApplicationRecord
     artist = Artist.find_or_create_by(attributes) if !attributes['name'].empty?
   end
 
-  def no_duplicates 
+  def no_duplicate 
     if Artist.find_by(artist_name: artist_name, genre_id: genre_id)
       errors.add(:artist_name, 'is already listed in the genre')
     end
