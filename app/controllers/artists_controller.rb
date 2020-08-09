@@ -34,10 +34,4 @@ class ArtistsController < ApplicationController
     def artist_params
         params.require(:artist).permit(:artist_name, :genre_id, genre_attributes: [:name])
     end
-
-    def set_artist
-        @artist = Artist.find_by(params[:id])
-        redirect_to artists_path if !@artist
-    end
-
 end
