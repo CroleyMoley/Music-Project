@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   delete '/logout' => 'sessions#destroy'
-  
+  get '/artists' => 'artists#index', as: :artists
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
   
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :equalizers, only: [:new, :index]
   end
   resources :users do 
-    resources :artists, only: [:index]
+    resources :artists, only: [:index, :show]
   end
   resources :genres
   

@@ -23,7 +23,11 @@ class ArtistsController < ApplicationController
     end
 
     def index 
-        @artists = current_user.artists.order(artist_name: :asc) 
+        if params[:user_id]
+            @artists = User.find(params[:user_id]).artists
+        else
+            @artists = Artist.all 
+        end
     end
 
     def edit
