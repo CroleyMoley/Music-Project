@@ -1,5 +1,6 @@
 <h1>Welcome <%= @user.username %>!</h1>
 
-<%= link_to "Created Artists", user_artists_path(@user) %>
+<%= link_to "Created Artists", user_artists_path(current_user.id) %>
+<%= link_to "Created EQ Settings", artist_equalizers_path(current_user) %>
 
 

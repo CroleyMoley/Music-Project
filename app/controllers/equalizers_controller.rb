@@ -9,11 +9,7 @@ class EqualizersController < ApplicationController
     end
 
     def index
-        if @artist = Artist.find_by_id(params[:artist_id])
-            @equalizers = @artist.equalizers
-        else
-            @equalizers = Equalizer.all
-        end
+        @equalizers = current_user.equalizers
     end
 
     def create

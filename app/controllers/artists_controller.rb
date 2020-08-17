@@ -23,7 +23,7 @@ class ArtistsController < ApplicationController
     end
 
     def index 
-        @artists = Artist.order(artist_name: :asc)
+        @artists = current_user.artists.order(artist_name: :asc) 
     end
 
     def edit
