@@ -26,8 +26,8 @@ class ArtistsController < ApplicationController
         if params[:user_id]
             @artists = User.find(params[:user_id]).artists
         else
-            @artists = Artist.all 
-        end
+            @artists = Artist.all.order(artist_name: :asc) 
+        end 
     end
 
     def edit
